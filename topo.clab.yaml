@@ -1,0 +1,22 @@
+name: sdwan
+topology:
+  nodes:
+    isp1:   {kind: linux, image: quay.io/frrouting/frr:10.0.1}
+    isp2:   {kind: linux, image: quay.io/frrouting/frr:10.0.1}
+    edge-a: {kind: linux, image: quay.io/frrouting/frr:10.0.1}
+    edge-b: {kind: linux, image: quay.io/frrouting/frr:10.0.1}
+    edge-c: {kind: linux, image: quay.io/frrouting/frr:10.0.1}
+    host-a: {kind: linux, image: alpine:latest}
+    host-b: {kind: linux, image: alpine:latest}
+    host-c: {kind: linux, image: alpine:latest}
+  links:
+    - endpoints: ["edge-a:eth1", "isp1:eth1"]
+    - endpoints: ["edge-a:eth2", "isp2:eth1"]
+    - endpoints: ["edge-b:eth1", "isp1:eth2"]
+    - endpoints: ["edge-b:eth2", "isp2:eth2"]
+    - endpoints: ["host-a:eth1", "edge-a:eth3"]
+    - endpoints: ["host-b:eth1", "edge-b:eth3"]
+    - endpoints: ["isp1:eth3", "isp2:eth3"]
+    - endpoints: ["edge-c:eth1", "isp1:eth4"]
+    - endpoints: ["edge-c:eth2", "isp2:eth4"]
+    - endpoints: ["host-c:eth1", "edge-c:eth3"]

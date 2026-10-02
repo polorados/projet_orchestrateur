@@ -1,0 +1,41 @@
+---
+edge-a:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.13
+edge-b:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.19
+edge-c:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.16
+host-a:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.14
+host-b:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.18
+host-c:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.12
+isp1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.17
+isp2:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.15

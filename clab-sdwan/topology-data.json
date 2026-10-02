@@ -1,0 +1,447 @@
+{
+  "name": "sdwan",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-a4be3a6dbfbb",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": [],
+  "nodes": {
+    "edge-a": {
+      "index": "0",
+      "shortname": "edge-a",
+      "longname": "clab-sdwan-edge-a",
+      "fqdn": "edge-a.sdwan.io",
+      "group": "",
+      "labdir": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/clab-sdwan/edge-a",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.0.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.13",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::d",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "master",
+        "clab-git-hash": "5133c6e",
+        "clab-mgmt-net-bridge": "br-a4be3a6dbfbb",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/clab-sdwan/edge-a",
+        "clab-node-longname": "clab-sdwan-edge-a",
+        "clab-node-name": "edge-a",
+        "clab-node-type": "",
+        "clab-owner": "ptreutenaere",
+        "clab-topo-file": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/topo.clab.yaml",
+        "containerlab": "sdwan"
+      },
+      "port-bindings": [
+      ]
+    },
+    "edge-b": {
+      "index": "1",
+      "shortname": "edge-b",
+      "longname": "clab-sdwan-edge-b",
+      "fqdn": "edge-b.sdwan.io",
+      "group": "",
+      "labdir": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/clab-sdwan/edge-b",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.0.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.19",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::13",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "master",
+        "clab-git-hash": "5133c6e",
+        "clab-mgmt-net-bridge": "br-a4be3a6dbfbb",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/clab-sdwan/edge-b",
+        "clab-node-longname": "clab-sdwan-edge-b",
+        "clab-node-name": "edge-b",
+        "clab-node-type": "",
+        "clab-owner": "ptreutenaere",
+        "clab-topo-file": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/topo.clab.yaml",
+        "containerlab": "sdwan"
+      },
+      "port-bindings": [
+      ]
+    },
+    "edge-c": {
+      "index": "2",
+      "shortname": "edge-c",
+      "longname": "clab-sdwan-edge-c",
+      "fqdn": "edge-c.sdwan.io",
+      "group": "",
+      "labdir": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/clab-sdwan/edge-c",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.0.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.16",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::10",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "master",
+        "clab-git-hash": "5133c6e",
+        "clab-mgmt-net-bridge": "br-a4be3a6dbfbb",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/clab-sdwan/edge-c",
+        "clab-node-longname": "clab-sdwan-edge-c",
+        "clab-node-name": "edge-c",
+        "clab-node-type": "",
+        "clab-owner": "ptreutenaere",
+        "clab-topo-file": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/topo.clab.yaml",
+        "containerlab": "sdwan"
+      },
+      "port-bindings": [
+      ]
+    },
+    "host-a": {
+      "index": "3",
+      "shortname": "host-a",
+      "longname": "clab-sdwan-host-a",
+      "fqdn": "host-a.sdwan.io",
+      "group": "",
+      "labdir": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/clab-sdwan/host-a",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.14",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::e",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "master",
+        "clab-git-hash": "5133c6e",
+        "clab-mgmt-net-bridge": "br-a4be3a6dbfbb",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/clab-sdwan/host-a",
+        "clab-node-longname": "clab-sdwan-host-a",
+        "clab-node-name": "host-a",
+        "clab-node-type": "",
+        "clab-owner": "ptreutenaere",
+        "clab-topo-file": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/topo.clab.yaml",
+        "containerlab": "sdwan"
+      },
+      "port-bindings": [
+      ]
+    },
+    "host-b": {
+      "index": "4",
+      "shortname": "host-b",
+      "longname": "clab-sdwan-host-b",
+      "fqdn": "host-b.sdwan.io",
+      "group": "",
+      "labdir": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/clab-sdwan/host-b",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.18",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::12",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "master",
+        "clab-git-hash": "5133c6e",
+        "clab-mgmt-net-bridge": "br-a4be3a6dbfbb",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/clab-sdwan/host-b",
+        "clab-node-longname": "clab-sdwan-host-b",
+        "clab-node-name": "host-b",
+        "clab-node-type": "",
+        "clab-owner": "ptreutenaere",
+        "clab-topo-file": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/topo.clab.yaml",
+        "containerlab": "sdwan"
+      },
+      "port-bindings": [
+      ]
+    },
+    "host-c": {
+      "index": "5",
+      "shortname": "host-c",
+      "longname": "clab-sdwan-host-c",
+      "fqdn": "host-c.sdwan.io",
+      "group": "",
+      "labdir": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/clab-sdwan/host-c",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.12",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::c",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "master",
+        "clab-git-hash": "5133c6e",
+        "clab-mgmt-net-bridge": "br-a4be3a6dbfbb",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/clab-sdwan/host-c",
+        "clab-node-longname": "clab-sdwan-host-c",
+        "clab-node-name": "host-c",
+        "clab-node-type": "",
+        "clab-owner": "ptreutenaere",
+        "clab-topo-file": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/topo.clab.yaml",
+        "containerlab": "sdwan"
+      },
+      "port-bindings": [
+      ]
+    },
+    "isp1": {
+      "index": "6",
+      "shortname": "isp1",
+      "longname": "clab-sdwan-isp1",
+      "fqdn": "isp1.sdwan.io",
+      "group": "",
+      "labdir": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/clab-sdwan/isp1",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.0.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.17",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::11",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "master",
+        "clab-git-hash": "5133c6e",
+        "clab-mgmt-net-bridge": "br-a4be3a6dbfbb",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/clab-sdwan/isp1",
+        "clab-node-longname": "clab-sdwan-isp1",
+        "clab-node-name": "isp1",
+        "clab-node-type": "",
+        "clab-owner": "ptreutenaere",
+        "clab-topo-file": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/topo.clab.yaml",
+        "containerlab": "sdwan"
+      },
+      "port-bindings": [
+      ]
+    },
+    "isp2": {
+      "index": "7",
+      "shortname": "isp2",
+      "longname": "clab-sdwan-isp2",
+      "fqdn": "isp2.sdwan.io",
+      "group": "",
+      "labdir": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/clab-sdwan/isp2",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.0.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.15",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::f",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "master",
+        "clab-git-hash": "5133c6e",
+        "clab-mgmt-net-bridge": "br-a4be3a6dbfbb",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/clab-sdwan/isp2",
+        "clab-node-longname": "clab-sdwan-isp2",
+        "clab-node-name": "isp2",
+        "clab-node-type": "",
+        "clab-owner": "ptreutenaere",
+        "clab-topo-file": "/home/ptreutenaere/projects/SDWAN/projet_orchestrateur/topo.clab.yaml",
+        "containerlab": "sdwan"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "endpoints": {
+        "a": {
+          "node": "edge-a",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:0d:14:39",
+          "peer": "z"
+        },
+        "z": {
+          "node": "isp1",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:76:1a:f1",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "edge-a",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:9d:f1:34",
+          "peer": "z"
+        },
+        "z": {
+          "node": "isp2",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:71:4b:89",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "edge-b",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:01:92:04",
+          "peer": "z"
+        },
+        "z": {
+          "node": "isp1",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:8c:83:e0",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "edge-b",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:8a:e7:d2",
+          "peer": "z"
+        },
+        "z": {
+          "node": "isp2",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:5d:bf:37",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "host-a",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:1c:a7:10",
+          "peer": "z"
+        },
+        "z": {
+          "node": "edge-a",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:66:3a:32",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "host-b",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:15:29:71",
+          "peer": "z"
+        },
+        "z": {
+          "node": "edge-b",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:19:4f:c3",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "isp1",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:44:8d:7e",
+          "peer": "z"
+        },
+        "z": {
+          "node": "isp2",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:e0:94:2d",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "edge-c",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:dd:cd:29",
+          "peer": "z"
+        },
+        "z": {
+          "node": "isp1",
+          "interface": "eth4",
+          "mac": "aa:c1:ab:22:35:d1",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "edge-c",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:c6:06:dd",
+          "peer": "z"
+        },
+        "z": {
+          "node": "isp2",
+          "interface": "eth4",
+          "mac": "aa:c1:ab:3e:8c:4c",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "host-c",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:4d:c3:44",
+          "peer": "z"
+        },
+        "z": {
+          "node": "edge-c",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:be:4a:12",
+          "peer": "a"
+        }
+      }
+    }
+  ]
+}

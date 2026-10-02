@@ -1,0 +1,25 @@
+all:
+  vars:
+    # The generated inventory is assumed to be used from the clab host.
+    # Hence no http proxy should be used. Therefore we make sure the http
+    # module does not attempt using any global http proxy.
+    ansible_httpapi_use_proxy: false
+  children:
+    linux:
+      hosts:
+        clab-sdwan-edge-a:
+          ansible_host: 172.20.20.13
+        clab-sdwan-edge-b:
+          ansible_host: 172.20.20.19
+        clab-sdwan-edge-c:
+          ansible_host: 172.20.20.16
+        clab-sdwan-host-a:
+          ansible_host: 172.20.20.14
+        clab-sdwan-host-b:
+          ansible_host: 172.20.20.18
+        clab-sdwan-host-c:
+          ansible_host: 172.20.20.12
+        clab-sdwan-isp1:
+          ansible_host: 172.20.20.17
+        clab-sdwan-isp2:
+          ansible_host: 172.20.20.15
