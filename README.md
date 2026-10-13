@@ -1,6 +1,7 @@
+# Orchestrator Project
 Welcome to our SDWAN orchestrator project
 
-## To create the topology do :
+To create the topology do :
 ```bash
 mkdir ../sdwlab
 cp lab_test.py ../sdwlab
@@ -9,7 +10,7 @@ cd ../sdwlab
 python lab_test.py
 ```
 
-## We thought of doing something like this 
+We thought of doing something like this 
 
 ```mermaid
 stateDiagram-v2
