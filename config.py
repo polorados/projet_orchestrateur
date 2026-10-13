@@ -1,3 +1,5 @@
+from pathlib import Path
+
 LAB = "sdwan"
 TOPO = f"{LAB}.clab.yml"
 FRR_IMAGE = "quay.io/frrouting/frr:10.0.1"
@@ -59,6 +61,10 @@ topology:
     host-c:
       kind: linux
       image: {HOST_IMAGE}
+    
+    controller:
+      kind: linux
+      image: {HOST_IMAGE}
 
   links:
     - endpoints: ["edge-a:eth1", "isp1:eth1"]
@@ -71,6 +77,8 @@ topology:
     - endpoints: ["edge-c:eth1", "isp1:eth4"]
     - endpoints: ["edge-c:eth2", "isp2:eth4"]
     - endpoints: ["host-c:eth1", "edge-c:eth3"]
+    - endpoints: ["controller:eth1", "isp1:eth10"]
+    - endpoints: ["controller:eth2", "isp2:eth10"]
 """
 
 BGP_CONFIGS = {
@@ -90,6 +98,9 @@ interface eth3
 !
 interface eth4
  ip address 10.0.5.1/30
+!
+interface eth10
+ ip address 1.1.1.1/30
 !
 interface lo
  ip address 10.10.10.1/32
@@ -130,6 +141,9 @@ interface eth3
 !
 interface eth4
  ip address 10.0.6.1/30
+!
+interface eth10
+ ip address 2.2.2.1/30
 !
 interface lo
  ip address 10.10.10.2/32

@@ -1,0 +1,75 @@
+{
+  "freeTextAnnotations": [],
+  "freeShapeAnnotations": [],
+  "trafficRateAnnotations": [],
+  "groupStyleAnnotations": [],
+  "networkNodeAnnotations": [],
+  "nodeAnnotations": [
+    {
+      "id": "isp1",
+      "position": {
+        "x": 300,
+        "y": 360
+      }
+    },
+    {
+      "id": "isp2",
+      "position": {
+        "x": 340,
+        "y": 260
+      }
+    },
+    {
+      "id": "edge-a",
+      "position": {
+        "x": 360,
+        "y": 460
+      }
+    },
+    {
+      "id": "edge-b",
+      "position": {
+        "x": 480,
+        "y": 320
+      }
+    },
+    {
+      "id": "edge-c",
+      "position": {
+        "x": 460,
+        "y": 220
+      }
+    },
+    {
+      "id": "host-a",
+      "position": {
+        "x": 440,
+        "y": 600
+      }
+    },
+    {
+      "id": "host-b",
+      "position": {
+        "x": 640,
+        "y": 380
+      }
+    },
+    {
+      "id": "host-c",
+      "position": {
+        "x": 620,
+        "y": 160
+      }
+    },
+    {
+      "id": "controller",
+      "position": {
+        "x": 440,
+        "y": 400
+      }
+    }
+  ],
+  "edgeAnnotations": [],
+  "aliasEndpointAnnotations": [],
+  "viewerSettings": {}
+}

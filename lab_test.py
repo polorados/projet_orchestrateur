@@ -111,6 +111,24 @@ def configure_hosts():
             "dev",
             "eth1",
         )
+    controller_ip = {"eth1":"1.1.1.1/30", "eth2":"2.2.2.2/30"}
+    # controller
+    controller = "controller"
+    for eth, ip in controller_ip.items():
+        docker_exec(controller, "ip", "link", "set", eth, "up")
+        docker_exec(controller, "ip", "addr", "add", ip, "dev", eth)
+    docker_exec(
+        controller,
+        "ip",
+        "route",
+        "add",
+        "10.0.0.0/8",
+        "via",
+        "1.1.1.1",
+        "dev",
+        "eth1",
+    )
+
 
 
 def deploy():
