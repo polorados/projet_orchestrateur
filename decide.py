@@ -2,7 +2,8 @@
 """decide.py : transforme des mesures de RTT en local-prefs BGP.
 
 Entrée (measure.py), fichier JSON :
-    {"RTT_<time>": {"<ip>": [rtt1, rtt2, ...], ...}, ...}
+    {"RTT_<time>": {"<ip source>": [rtt1, rtt2, ...], ...}}
+    Le routeur de chaque IP source est retrouvé dans intent.json.
 
 Sortie (configure.py) :
     {"edge-a": [{"neighbor": "10.0.1.1", "local_pref": 200},
@@ -16,16 +17,32 @@ Usage :
 import argparse
 import json
 import sys
+from pathlib import Path
 
 PREF_BEST = 200
 PREF_OTHER = 100
 
-# IP du voisin BGP (côté ISP) -> routeur sur lequel appliquer la local-pref
-NEIGHBORS = {
-    "10.0.1.1": "edge-a", "10.0.2.1": "edge-a",
-    "10.0.3.1": "edge-b", "10.0.4.1": "edge-b",
-    "10.0.5.1": "edge-c", "10.0.6.1": "edge-c",
-}
+INTENT = Path(__file__).resolve().parent / "intent.json"
+
+
+def load_neighbors(path=INTENT) -> dict:
+    """IP source (côté edge) -> (routeur, IP du voisin BGP en face).
+
+    Ex : "10.0.1.2" -> ("edge-a", "10.0.1.1")
+    """
+    ips = json.loads(Path(path).read_text())["IP"]
+    neighbors = {}
+    for router, addrs in ips.items():
+        for cidr, peer in addrs.items():
+            src = cidr.split("/")[0]
+            # IP du voisin : l'adresse du routeur 'peer' tournée vers 'router'
+            peer_ip = next((c.split("/")[0] for c, r in ips.get(peer, {}).items()
+                            if r == router), None)
+            neighbors[src] = (router, peer_ip)
+    return neighbors
+
+
+NEIGHBORS = load_neighbors()
 
 
 # def latest(measures: dict) -> dict:
@@ -50,8 +67,8 @@ def mean_rtt(rtts: list) -> float:
 def decide(measures: dict) -> dict:
     groups = {}
     for ip, rtts in latest(measures).items():
-        router = NEIGHBORS.get(ip, "unknown")
-        groups.setdefault(router, []).append((mean_rtt(rtts), ip))
+        router, neighbor = NEIGHBORS.get(ip, ("unknown", ip))
+        groups.setdefault(router, []).append((mean_rtt(rtts), neighbor))
 
     decisions = {}
     for router, links in groups.items():
