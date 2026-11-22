@@ -8,6 +8,7 @@ cp lab_test.py ../sdwlab
 cp config.py ../sdwlab
 cd ../sdwlab
 python lab_test.py
+containerlab deploy
 ```
 
 We thought of doing something like this 

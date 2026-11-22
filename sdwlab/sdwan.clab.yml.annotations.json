@@ -37,8 +37,8 @@
     {
       "id": "edge-c",
       "position": {
-        "x": 220,
-        "y": 180
+        "x": 420,
+        "y": 360
       }
     },
     {
@@ -72,7 +72,5 @@
   ],
   "edgeAnnotations": [],
   "aliasEndpointAnnotations": [],
-  "viewerSettings": {
-    "nodeStyle": "boxed"
-  }
+  "viewerSettings": {}
 }
