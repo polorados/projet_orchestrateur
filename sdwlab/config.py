@@ -1,7 +1,6 @@
 from pathlib import Path
+from constants import LAB
 
-LAB = "sdwan"
-TOPO = f"{LAB}.clab.yml"
 FRR_IMAGE = "quay.io/frrouting/frr:10.0.1"
 HOST_IMAGE = "alpine:latest"
 CONTROLLER_IMAGE = "alpine:latest"

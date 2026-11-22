@@ -14,8 +14,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && pip install --no-cache-dir fastapi "uvicorn[standard]" httpx python-multipart requests pillow
 WORKDIR /app
 
-COPY orchestrateur/measure.py .
-COPY orchestrateur/decide.py .
-COPY orchestrateur/configure.py .
-COPY orchestrateur/main.py .
+COPY ../measure.py .
+COPY ../decide.py .
+COPY ../configure.py .
+COPY ../main.py .
 CMD ["python", "main.py"]
