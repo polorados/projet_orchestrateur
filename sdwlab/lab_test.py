@@ -1,23 +1,9 @@
-import subprocess
 import sys
 import time
 
-from config import BGP_CONFIGS, FRR_IMAGE, LAB, ROOT, ROUTERS, TOPO, TOPOLOGY
+from config import BGP_CONFIGS, FRR_IMAGE, ROOT, ROUTERS, TOPOLOGY
 
-
-def run(cmd, check=True):
-    """Run a command and return its output."""
-    print(">", " ".join(cmd))
-    return subprocess.run(
-        cmd,
-        check=check,
-        text=True,
-        capture_output=True,
-    )
-
-
-def container(name):
-    return f"clab-{LAB}-{name}"
+from constants import TOPO, container, ping, run
 
 
 def write_file(path, content):
@@ -181,20 +167,6 @@ def show_bgp(router):
     print(result.stdout)
 
 
-def ping(host, destination, label):
-    result = docker_exec(
-        host,
-        "ping",
-        "-c2",
-        "-W2",
-        destination,
-        check=False,
-    )
-
-    status = "OK" if result.returncode == 0 else "FAIL"
-    print(f"[{status:4}] {host:7} -> {destination:14} {label}")
-
-
 def wait_for_bgp():
     print(">> Waiting for BGP convergence...")
 
@@ -248,7 +220,8 @@ def run_tests():
     ]
 
     for host, destination, label in tests:
-        ping(host, destination, label)
+        out = ping(host, destination, True)
+        print(out, label)
 
     print("\n>> Path host-a -> host-c")
 
