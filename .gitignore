@@ -2,6 +2,7 @@
 ### Containerlab things
 edge-*/
 isp*/
+clab-*/
 
 
 # Byte-compiled / optimized / DLL files
@@ -224,3 +225,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+.vscode/
+.python-version
+src/

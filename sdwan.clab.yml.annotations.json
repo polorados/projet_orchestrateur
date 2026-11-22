@@ -2,56 +2,57 @@
   "freeTextAnnotations": [],
   "freeShapeAnnotations": [],
   "trafficRateAnnotations": [],
+  "scriptButtonAnnotations": [],
   "groupStyleAnnotations": [],
   "networkNodeAnnotations": [],
   "nodeAnnotations": [
     {
       "id": "isp1",
       "position": {
-        "x": 300,
-        "y": 360
+        "x": 380,
+        "y": 440
       }
     },
     {
       "id": "isp2",
       "position": {
-        "x": 340,
+        "x": 360,
         "y": 260
       }
     },
     {
       "id": "edge-a",
       "position": {
-        "x": 360,
-        "y": 460
+        "x": 540,
+        "y": 400
       }
     },
     {
       "id": "edge-b",
       "position": {
-        "x": 480,
-        "y": 320
+        "x": 140,
+        "y": 360
       }
     },
     {
       "id": "edge-c",
       "position": {
         "x": 460,
-        "y": 220
+        "y": 200
       }
     },
     {
       "id": "host-a",
       "position": {
-        "x": 440,
-        "y": 600
+        "x": 680,
+        "y": 380
       }
     },
     {
       "id": "host-b",
       "position": {
-        "x": 640,
-        "y": 380
+        "x": 80,
+        "y": 360
       }
     },
     {
@@ -64,8 +65,8 @@
     {
       "id": "controller",
       "position": {
-        "x": 440,
-        "y": 400
+        "x": 280,
+        "y": 340
       }
     }
   ],
