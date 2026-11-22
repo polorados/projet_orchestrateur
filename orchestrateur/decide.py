@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
 """decide.py : transforme des mesures de RTT en local-prefs BGP.
 
-Entrée (measure.py), fichier JSON ou stdin :
+Entrée (measure.py), fichier JSON :
     {"RTT_<time>": {"<ip>": [rtt1, rtt2, ...], ...}, ...}
-    (un RTT à null = ping perdu)
 
-Sortie (configure.py), sur stdout ou dans un fichier :
-    {"edge-a": [{"neighbor": "10.0.1.1", "local_pref": 200}, ...], ...}
-
-Pour chaque routeur, le voisin dont le RTT moyen (dernière mesure) est le
-plus faible reçoit PREF_BEST, les autres PREF_OTHER.
+Sortie (configure.py) :
+    {"edge-a": [{"neighbor": "10.0.1.1", "local_pref": 200},
+            {"neighbor": "10.0.2.1", "local_pref": 100}],
+    "edge-b": [...]}
 
 Usage :
     python3 decide.py rtt.json            # résultat sur stdout
@@ -30,15 +28,18 @@ NEIGHBORS = {
 }
 
 
+# def latest(measures: dict) -> dict:
+#     """Retourne le bloc {ip: [rtt...]} de la mesure la plus récente."""
+#     def t(key):
+#         suffix = key.split("_", 1)[-1]
+#         try:
+#             return float(suffix)
+#         except ValueError:
+#             return suffix
+#     return measures[max(measures, key=t)]
 def latest(measures: dict) -> dict:
     """Retourne le bloc {ip: [rtt...]} de la mesure la plus récente."""
-    def t(key):
-        suffix = key.split("_", 1)[-1]
-        try:
-            return float(suffix)
-        except ValueError:
-            return suffix
-    return measures[max(measures, key=t)]
+    return next(iter(measures.values()))
 
 
 def mean_rtt(rtts: list) -> float:
@@ -64,8 +65,8 @@ def decide(measures: dict) -> dict:
 
 def main():
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    p.add_argument("input", nargs="?", help="fichier JSON de measure.py (défaut : stdin)")
-    p.add_argument("-o", "--output", help="fichier de sortie (défaut : stdout)")
+    p.add_argument("input", nargs="?", help="fichier JSON de measure.py")
+    p.add_argument("-o", "--output", help="fichier de sortie")
     args = p.parse_args()
 
     if args.input:
