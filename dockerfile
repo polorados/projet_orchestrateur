@@ -10,12 +10,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     iputils-tracepath \
     tcpdump \
     netcat-openbsd \
+    openssh-client \
     && rm -rf /var/lib/apt/lists/* \
     && pip install --no-cache-dir fastapi "uvicorn[standard]" httpx python-multipart requests pillow
 WORKDIR /app
 
-COPY orchestrateur/measure.py .
+# Clé SSH du controller (copiée sur les edges par sdwlab/lab_test.py)
+RUN mkdir -p /root/.ssh && ssh-keygen -q -t ed25519 -N "" -f /root/.ssh/id_ed25519
+
+COPY orchestrateur/measure.py .
 COPY orchestrateur/decide.py .
 COPY orchestrateur/configure.py .
 COPY orchestrateur/main.py .
+COPY orchestrateur/intent.json .
+COPY orchestrateur/constants.py .
 CMD ["python", "main.py"]
