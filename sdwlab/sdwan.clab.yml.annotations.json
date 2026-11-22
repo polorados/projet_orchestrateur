@@ -1,0 +1,112 @@
+{
+  "freeTextAnnotations": [],
+  "freeShapeAnnotations": [],
+  "trafficRateAnnotations": [],
+  "scriptButtonAnnotations": [],
+  "groupStyleAnnotations": [],
+  "networkNodeAnnotations": [],
+  "nodeAnnotations": [
+    {
+      "id": "isp1",
+      "position": {
+        "x": 500,
+        "y": 380
+      },
+      "geoCoordinates": {
+        "lat": 48.775846,
+        "lng": 9.182932
+      }
+    },
+    {
+      "id": "isp2",
+      "position": {
+        "x": 380,
+        "y": 336.0718209024163
+      },
+      "geoCoordinates": {
+        "lat": 50.110924,
+        "lng": 8.682127
+      }
+    },
+    {
+      "id": "edge-a",
+      "position": {
+        "x": 680,
+        "y": 360
+      },
+      "geoCoordinates": {
+        "lat": 48.856613,
+        "lng": 2.352222
+      }
+    },
+    {
+      "id": "edge-b",
+      "position": {
+        "x": 340,
+        "y": 200
+      },
+      "geoCoordinates": {
+        "lat": 51.507351,
+        "lng": -0.127758
+      }
+    },
+    {
+      "id": "edge-c",
+      "position": {
+        "x": 560,
+        "y": 231.5811290428278
+      },
+      "geoCoordinates": {
+        "lat": 48.775846,
+        "lng": 11.982932
+      }
+    },
+    {
+      "id": "host-a",
+      "position": {
+        "x": 780,
+        "y": 300
+      },
+      "geoCoordinates": {
+        "lat": 50.110924,
+        "lng": 11.482127
+      }
+    },
+    {
+      "id": "host-b",
+      "position": {
+        "x": 460,
+        "y": 120
+      },
+      "geoCoordinates": {
+        "lat": 48.856613,
+        "lng": 5.152222
+      }
+    },
+    {
+      "id": "host-c",
+      "position": {
+        "x": 640,
+        "y": 160
+      },
+      "geoCoordinates": {
+        "lat": 51.507351,
+        "lng": 2.672242
+      }
+    },
+    {
+      "id": "controller",
+      "position": {
+        "x": 300,
+        "y": 480
+      },
+      "geoCoordinates": {
+        "lat": 50.755745,
+        "lng": 11.162831
+      }
+    }
+  ],
+  "edgeAnnotations": [],
+  "aliasEndpointAnnotations": [],
+  "viewerSettings": {}
+}
