@@ -74,6 +74,7 @@ topology:
     - endpoints: ["edge-b:eth2", "isp2:eth2"]
     - endpoints: ["host-a:eth1", "edge-a:eth3"]
     - endpoints: ["host-b:eth1", "edge-b:eth3"]
+    - endpoints: ["host-c:eth1", "edge-c:eth3"]
     - endpoints: ["isp1:eth3", "isp2:eth3"]
     - endpoints: ["edge-c:eth1", "isp1:eth4"]
     - endpoints: ["edge-c:eth2", "isp2:eth4"]
