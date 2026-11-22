@@ -1,21 +1,8 @@
-#!/usr/bin/env python3
-
 import subprocess
 import sys
 import time
-from pathlib import Path
-from config import (
-    LAB,
-    TOPO,
-    FRR_IMAGE,
-    HOST_IMAGE,
-    ROUTERS,
-    HOSTS,
-    ROOT,
-    TOPOLOGY,
-    BGP_CONFIGS
-)
 
+from config import BGP_CONFIGS, FRR_IMAGE, LAB, ROOT, ROUTERS, TOPO, TOPOLOGY
 
 
 def run(cmd, check=True):
@@ -111,7 +98,7 @@ def configure_hosts():
             "dev",
             "eth1",
         )
-    controller_ip = {"eth1":"1.1.1.1/30", "eth2":"2.2.2.2/30"}
+    controller_ip = {"eth1":"1.1.1.2/30", "eth2":"2.2.2.2/30", "eth3":"3.3.3.2/30"}
     # controller
     controller = "controller"
     for eth, ip in controller_ip.items():

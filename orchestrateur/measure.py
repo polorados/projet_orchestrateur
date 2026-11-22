@@ -1,16 +1,10 @@
-from scapy.layers.inet import IP, ICMP, TCP, UDP
-from scapy.all import send, sr, sr1, sniff
-import json
-from pathlib import Path
 import ipaddress
+import json
 import time
 
-INTENT_FILE = Path("intent.json")
-RTT_FILE = Path("data/rtt.json")
-PROBE_PORT = 179
-TIME_BETWEEN_PROBE = 5
-BATCH_SIZE = 3
-
+from constants import *
+from scapy.all import sr1
+from scapy.layers.inet import IP, TCP
 
 with INTENT_FILE.open() as file:
     data = json.load(file)
@@ -65,7 +59,3 @@ def send_full_rtt_probe(batch_size:int):
     with RTT_FILE.open("w") as file:
         json.dump(measurements, file, indent=4)
 
-
-while True:
-    time.sleep(TIME_BETWEEN_PROBE)
-    send_full_rtt_probe(BATCH_SIZE)

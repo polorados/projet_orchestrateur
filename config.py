@@ -4,6 +4,7 @@ LAB = "sdwan"
 TOPO = f"{LAB}.clab.yml"
 FRR_IMAGE = "quay.io/frrouting/frr:10.0.1"
 HOST_IMAGE = "alpine:latest"
+CONTROLLER_IMAGE = "alpine:latest"
 
 ROUTERS = ["isp1", "isp2", "edge-a", "edge-b", "edge-c"]
 HOSTS = ["host-a", "host-b", "host-c"]
@@ -64,7 +65,7 @@ topology:
     
     controller:
       kind: linux
-      image: {HOST_IMAGE}
+      image: {CONTROLLER_IMAGE}
 
   links:
     - endpoints: ["edge-a:eth1", "isp1:eth1"]
@@ -77,8 +78,9 @@ topology:
     - endpoints: ["edge-c:eth1", "isp1:eth4"]
     - endpoints: ["edge-c:eth2", "isp2:eth4"]
     - endpoints: ["host-c:eth1", "edge-c:eth3"]
-    - endpoints: ["controller:eth1", "isp1:eth10"]
-    - endpoints: ["controller:eth2", "isp2:eth10"]
+    - endpoints: ["controller:eth1", "edge-a:eth10"]
+    - endpoints: ["controller:eth2", "edge-b:eth10"]
+    - endpoints: ["controller:eth3", "edge-c:eth10"]
 """
 
 BGP_CONFIGS = {
@@ -98,9 +100,6 @@ interface eth3
 !
 interface eth4
  ip address 10.0.5.1/30
-!
-interface eth10
- ip address 1.1.1.1/30
 !
 interface lo
  ip address 10.10.10.1/32
@@ -142,9 +141,6 @@ interface eth3
 interface eth4
  ip address 10.0.6.1/30
 !
-interface eth10
- ip address 2.2.2.1/30
-!
 interface lo
  ip address 10.10.10.2/32
 !
@@ -182,6 +178,9 @@ interface eth2
 interface eth3
  ip address 192.168.1.1/24
 !
+interface eth10
+ ip address 1.1.1.1/30
+!
 interface lo
  ip address 10.10.10.11/32
 !
@@ -200,6 +199,7 @@ router bgp 65101
   network 10.10.10.11/32
   network 10.0.1.0/30
   network 10.0.2.0/30
+  network 1.1.1.0/30
   network 192.168.1.0/24
   neighbor 10.0.1.1 route-map EXPORT-LOCAL out
   neighbor 10.0.2.1 route-map EXPORT-LOCAL out
@@ -222,6 +222,9 @@ interface eth2
 !
 interface eth3
  ip address 192.168.2.1/24
+!
+interface eth10
+ ip address 2.2.2.1/30
 !
 interface lo
  ip address 10.10.10.12/32
@@ -263,6 +266,9 @@ interface eth2
 !
 interface eth3
  ip address 192.168.3.1/24
+!
+interface eth10
+ ip address 3.3.3.1/30
 !
 interface lo
  ip address 10.10.10.13/32

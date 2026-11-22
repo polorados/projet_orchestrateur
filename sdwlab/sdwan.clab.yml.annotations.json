@@ -9,68 +9,70 @@
     {
       "id": "isp1",
       "position": {
-        "x": 380,
-        "y": 440
+        "x": 280,
+        "y": 380
       }
     },
     {
       "id": "isp2",
       "position": {
-        "x": 360,
+        "x": 300,
         "y": 260
       }
     },
     {
       "id": "edge-a",
       "position": {
-        "x": 540,
-        "y": 400
+        "x": 400,
+        "y": 460
       }
     },
     {
       "id": "edge-b",
       "position": {
-        "x": 140,
-        "y": 360
+        "x": 440,
+        "y": 260
       }
     },
     {
       "id": "edge-c",
       "position": {
-        "x": 460,
-        "y": 200
+        "x": 220,
+        "y": 180
       }
     },
     {
       "id": "host-a",
       "position": {
-        "x": 680,
-        "y": 380
+        "x": 520,
+        "y": 320
       }
     },
     {
       "id": "host-b",
       "position": {
-        "x": 80,
-        "y": 360
+        "x": 500,
+        "y": 440
       }
     },
     {
       "id": "host-c",
       "position": {
-        "x": 620,
-        "y": 160
+        "x": 600,
+        "y": 260
       }
     },
     {
       "id": "controller",
       "position": {
-        "x": 280,
-        "y": 340
+        "x": 580,
+        "y": 400
       }
     }
   ],
   "edgeAnnotations": [],
   "aliasEndpointAnnotations": [],
-  "viewerSettings": {}
+  "viewerSettings": {
+    "nodeStyle": "boxed"
+  }
 }
