@@ -1,4 +1,8 @@
+import sys
 from pathlib import Path
+
+# constants.py est à la racine du dépôt, un niveau au-dessus de sdwlab/
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from constants import LAB
 
 FRR_IMAGE = "quay.io/frrouting/frr:10.0.1"

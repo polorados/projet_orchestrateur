@@ -3,7 +3,7 @@ import time
 import measure
 from constants import *
 
-if __name__ == "main.py":
+if __name__ == "__main__":
 
     while True:
 

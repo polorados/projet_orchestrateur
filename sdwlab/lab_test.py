@@ -220,12 +220,12 @@ def run_tests():
     ]
 
     for host, destination, label in tests:
-        out = ping(host, destination, True)
-        print(out, label)
+        print(f"\n{label}")
+        ping(host, destination)
 
     print("\n>> Path host-a -> host-c")
 
-    docker_exec(
+    result = docker_exec(
         "host-a",
         "traceroute",
         "-n",
@@ -234,6 +234,7 @@ def run_tests():
         check=False,
     )
 
+    print(result.stdout)
 
 def main():
     command = sys.argv[1] if len(sys.argv) > 1 else "up"
