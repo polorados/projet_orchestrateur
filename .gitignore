@@ -180,6 +180,8 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+/sdwlab/sdwan.clab.yml.annotations.json
+/sdwlab/sdwan.clab.yml
 
 # Pyre type checker
 .pyre/

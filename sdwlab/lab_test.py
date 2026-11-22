@@ -104,6 +104,24 @@ def configure_hosts():
 
 
 
+def setup_ssh():
+    """Lance sshd sur les edges et y autorise la clé du controller."""
+    pubkey = docker_exec("controller", "cat", "/root/.ssh/id_ed25519.pub").stdout.strip()
+
+    for edge in ["edge-a", "edge-b", "edge-c"]:
+        docker_exec(edge, "apk", "add", "--no-cache", "openssh-server")
+        docker_exec(edge, "ssh-keygen", "-A")
+        docker_exec(
+            edge,
+            "sh",
+            "-c",
+            "mkdir -p /root/.ssh && chmod 700 /root/.ssh"
+            f" && echo '{pubkey}' > /root/.ssh/authorized_keys"
+            " && chmod 600 /root/.ssh/authorized_keys",
+        )
+        docker_exec(edge, "/usr/sbin/sshd")
+
+
 def deploy():
     run(
         [
@@ -226,6 +244,7 @@ def main():
         write_frr_configs()
         deploy()
         configure_hosts()
+        setup_ssh()
         wait_for_bgp()
         run_tests()
 

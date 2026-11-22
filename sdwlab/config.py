@@ -3,7 +3,7 @@ from constants import LAB
 
 FRR_IMAGE = "quay.io/frrouting/frr:10.0.1"
 HOST_IMAGE = "alpine:latest"
-CONTROLLER_IMAGE = "alpine:latest"
+CONTROLLER_IMAGE = "sdwan-controller"
 
 ROUTERS = ["isp1", "isp2", "edge-a", "edge-b", "edge-c"]
 HOSTS = ["host-a", "host-b", "host-c"]
@@ -65,6 +65,7 @@ topology:
     controller:
       kind: linux
       image: {CONTROLLER_IMAGE}
+      cmd: sleep infinity   # main.py est encore vide : garde le conteneur en vie
 
   links:
     - endpoints: ["edge-a:eth1", "isp1:eth1"]
